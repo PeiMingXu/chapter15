@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xmut.mapper.BookMapper">
+    <!--图书借阅-->
+    <update id="borrowBook">
+        update book
+        <set>
+            <if test="name !=null and name.trim() !=''">
+                book_name=#{name},
+            </if>
+            <if test="isbn !=null and isbn.trim() !=''">
+                book_isbn=#{isbn},
+            </if>
+            <if test="press!=null and press.trim() !=''">
+                book_press=#{press},
+            </if>
+            <if test="author !=null and author.trim() !=''">
+                book_author=#{author},
+            </if>
+            <if test="pagination !=null">
+                book_pagination=#{pagination},
+            </if>
+            <if test="price !=null">
+                book_price=#{price},
+            </if>
+            <if test="uploadtime !=null and uploadtime.trim() !=''">
+                book_uploadtime=#{uploadtime},
+            </if>
+            <if test="status !=null and status.trim() !=''">
+                book_status=#{status},
+            </if>
+            <if test="borrower !=null">
+                book_borrower=#{borrower},
+            </if>
+            <if test="borrowtime !=null ">
+                book_borrowtime=#{borrowtime},
+            </if>
+            <if test="returntime !=null">
+                book_returntime=#{returntime}
+            </if>
+        </set>
+        where book_id=#{id}
+    </update>
+
+    <!--图书修改-->
+    <update id="editBook">
+        update book
+        <set>
+            <if test="name !=null and name.trim() !=''">
+                book_name=#{name},
+            </if>
+            <if test="isbn !=null and isbn.trim() !=''">
+                book_isbn=#{isbn},
+            </if>
+            <if test="press!=null and press.trim() !=''">
+                book_press=#{press},
+            </if>
+            <if test="author !=null and author.trim() !=''">
+                book_author=#{author},
+            </if>
+            <if test="pagination !=null">
+                book_pagination=#{pagination},
+            </if>
+            <if test="price !=null">
+                book_price=#{price},
+            </if>
+            <if test="uploadtime !=null and uploadtime.trim() !=''">
+                book_uploadtime=#{uploadtime},
+            </if>
+            <if test="status !=null and status.trim() !=''">
+                book_status=#{status},
+            </if>
+            <if test="borrower !=null">
+                book_borrower=#{borrower},
+            </if>
+            <if test="borrowtime !=null ">
+                book_borrowtime=#{borrowtime},
+            </if>
+            <if test="returntime !=null">
+                book_returntime=#{returntime}
+            </if>
+        </set>
+        where book_id=#{id}
+    </update>
+
+    <!--图书增加-->
+    <insert id="addBook">
+        INSERT into book values (#{id},#{name },#{isbn},#{press},#{author},#{pagination},
+                                 #{price},#{uploadtime},#{status},#{borrower},#{borrowtime},#{returntime})
+    </insert>
+
+    <!--&lt;!&ndash;查询当前用户借阅的和当前用户归还的 包括条件查询&ndash;&gt;-->
+    <!--<select id="ss">-->
+
+    <!--</select>-->
+    <!--&lt;!&ndash;查询当前用户借阅中的和当前用户归还中的&ndash;&gt;-->
+    <!--<select id="bb">-->
+
+    <!--</select>-->
+
+</mapper>
